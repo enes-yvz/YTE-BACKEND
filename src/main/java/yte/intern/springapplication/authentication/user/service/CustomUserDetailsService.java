@@ -32,23 +32,29 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User %s is not found".formatted(username)));
     }
 
-
     public User findUserByUsername(String username) {
 
         User user;
 
         try {
 
-             user = userRepository.findOneUserByUsername(username);
-        }
+            user = userRepository.findOneUserByUsername(username);
 
-        catch (UsernameNotFoundException exception) {
+            if (user.equals(null)) {
+
+                user = new User("X","XXXXXXXXXX","X","X","X",Role.STUDENT, List.of(new Authority("STUDENT")));
+
+            }
+
+            return user;
+
+        } catch (Exception exception) {
 
             user = new User("X","XXXXXXXXXX","X","X","X",Role.STUDENT, List.of(new Authority("STUDENT")));
 
-        }
+            return user;
 
-        return user;
+        }
     }
 
     public UserMessageResponse addUser(User user,String password) {

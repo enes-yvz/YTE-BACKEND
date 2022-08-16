@@ -49,7 +49,7 @@ public class UserController {
         return new UserQueryModel(customUserDetailsService.findUserByUsername(username));
     }
 
-    @DeleteMapping("/{id")
+    @DeleteMapping("/{id}")
     public MessageResponse deleteUserById(@PathVariable @NotNull Long id) {
         return customUserDetailsService.deleteUserById(id);
     }

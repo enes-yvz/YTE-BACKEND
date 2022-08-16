@@ -1,5 +1,7 @@
 package yte.intern.springapplication.authentication.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +11,7 @@ import yte.intern.springapplication.authentication.controller.request.LoginReque
 import yte.intern.springapplication.authentication.service.LoginService;
 import yte.intern.springapplication.authentication.user.entity.User;
 import yte.intern.springapplication.authentication.user.service.CustomUserDetailsService;
+import yte.intern.springapplication.common.response.LoginMessageResponse;
 import yte.intern.springapplication.common.response.MessageResponse;
 import yte.intern.springapplication.common.response.ResponseType;
 
@@ -23,13 +26,14 @@ public class LoginController {
     private final CustomUserDetailsService customUserDetailsService;
 
     @PostMapping("/login")
-    public MessageResponse login(@Valid @RequestBody LoginRequest loginRequest) {
+    public LoginMessageResponse login(@Valid @RequestBody LoginRequest loginRequest) {
         User user = customUserDetailsService.findUserByUsername(loginRequest.username());
+        String json = user.toString();
         if (user.getPassword().equals("XXXXXXXXX")) {
-            return new MessageResponse(ResponseType.ERROR, "User can't found");
+            return new LoginMessageResponse(ResponseType.ERROR, "User can't found",json);
         }
         else {
-            return loginService.login(loginRequest);
+            return loginService.login(loginRequest,json);
         }
 
     }

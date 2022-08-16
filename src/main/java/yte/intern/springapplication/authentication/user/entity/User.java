@@ -52,4 +52,16 @@ public class User extends BaseEntity implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        return  "{" +
+                "\"username\":" + "\"" + username + "\"" +
+                "," + "\"password\":" + "\"" + password + "\"" +
+                "," + "\"name\":" + "\"" + name  + "\"" +
+                "," + "\"surname\":" + "\"" + surname + "\"" +
+                "," + "\"email\":" + "\"" + email + "\"" +
+                "," + "\"role\":" + "\"" + role + "\"" +
+                "}";
+    }
 }

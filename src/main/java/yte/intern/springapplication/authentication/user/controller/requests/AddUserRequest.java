@@ -1,8 +1,5 @@
 package yte.intern.springapplication.authentication.user.controller.requests;
 
-import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import yte.intern.springapplication.authentication.entity.Authority;
 import yte.intern.springapplication.authentication.user.entity.Role;
 import yte.intern.springapplication.authentication.user.entity.User;
@@ -11,7 +8,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
-import java.util.Random;
 
 public record AddUserRequest(
 

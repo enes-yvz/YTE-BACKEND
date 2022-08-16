@@ -9,6 +9,8 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import yte.intern.springapplication.authentication.controller.request.LoginRequest;
+import yte.intern.springapplication.authentication.user.entity.User;
+import yte.intern.springapplication.common.response.LoginMessageResponse;
 import yte.intern.springapplication.common.response.MessageResponse;
 import yte.intern.springapplication.common.response.ResponseType;
 
@@ -18,16 +20,16 @@ public class LoginService {
 
     private final AuthenticationManager authenticationManager;
 
-    public MessageResponse login(LoginRequest loginRequest) {
+    public LoginMessageResponse login(LoginRequest loginRequest, String json) {
         var preAuthentication = new UsernamePasswordAuthenticationToken(loginRequest.username(), loginRequest.password());
         try {
             Authentication postAuthentication = authenticationManager.authenticate(preAuthentication);
             SecurityContext newContext = SecurityContextHolder.createEmptyContext();
             newContext.setAuthentication(postAuthentication);
             SecurityContextHolder.setContext(newContext);
-            return new MessageResponse(ResponseType.SUCCESS, "Login is successful");
+            return new LoginMessageResponse(ResponseType.SUCCESS, "Login is successful",json);
         } catch (AuthenticationException e) {
-            return new MessageResponse(ResponseType.ERROR, "Authentication exception: %s".formatted(e.getMessage()));
+            return new LoginMessageResponse(ResponseType.ERROR, "Authentication exception: %s".formatted(e.getMessage()),json);
         }
     }
 }

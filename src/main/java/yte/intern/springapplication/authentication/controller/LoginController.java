@@ -3,6 +3,8 @@ package yte.intern.springapplication.authentication.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +23,9 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class LoginController {
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     private final LoginService loginService;
 
     private final CustomUserDetailsService customUserDetailsService;
@@ -29,7 +34,10 @@ public class LoginController {
     public LoginMessageResponse login(@Valid @RequestBody LoginRequest loginRequest) {
         User user = customUserDetailsService.findUserByUsername(loginRequest.username());
         String json = user.toString();
-        if (user.getPassword().equals("XXXXXXXXX")) {
+        if(!passwordEncoder.matches(loginRequest.password(),user.getPassword())) {
+            return new LoginMessageResponse(ResponseType.ERROR, "Wrong password", "{\"valid\":\"false\"}");
+        }
+        else if (user.getPassword().equals("XXXXXXXXX")) {
             return new LoginMessageResponse(ResponseType.ERROR, "User can't found",json);
         }
         else {

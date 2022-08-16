@@ -1,11 +1,9 @@
 package yte.intern.springapplication.authentication.user.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import yte.intern.springapplication.authentication.entity.Authority;
 import yte.intern.springapplication.authentication.user.entity.Role;
@@ -20,9 +18,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     private final UserRepository userRepository;
 
@@ -40,7 +35,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
             user = userRepository.findOneUserByUsername(username);
 
-            if (user.equals(null)) {
+            if (user == null) {
 
                 user = new User("X","XXXXXXXXXX","X","X","X",Role.STUDENT, List.of(new Authority("STUDENT")));
 

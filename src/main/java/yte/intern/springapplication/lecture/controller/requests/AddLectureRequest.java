@@ -1,11 +1,11 @@
-package yte.intern.springapplication.student.controller.requests;
-import yte.intern.springapplication.student.entity.Student;
+package yte.intern.springapplication.lecture.controller.requests;
+import yte.intern.springapplication.lecture.entity.Lecture;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public record AddStudentRequest(
+public record AddLectureRequest(
         @NotBlank
         @Size(max = 25)
         String name,
@@ -19,7 +19,7 @@ public record AddStudentRequest(
         String studentNumber
 ) {
 
-    public Student toDomainEntity() {
-        return new Student(name, surname, email, studentNumber);
+    public Lecture toDomainEntity() {
+        return new Lecture(name, surname, email, studentNumber);
     }
 }

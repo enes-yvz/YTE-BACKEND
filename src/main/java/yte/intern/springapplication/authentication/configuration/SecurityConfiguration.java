@@ -17,7 +17,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.authorizeHttpRequests()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/user").permitAll()
+                .antMatchers("/user").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().disable()

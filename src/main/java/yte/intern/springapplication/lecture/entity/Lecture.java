@@ -1,4 +1,4 @@
-package yte.intern.springapplication.student.entity;
+package yte.intern.springapplication.lecture.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,14 +9,14 @@ import javax.persistence.Entity;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Student extends BaseEntity {
+public class Lecture extends BaseEntity {
 
     private String name;
     private String surname;
     private String email;
     private String studentNumber;
 
-    public Student(String name,
+    public Lecture(String name,
                    String surname,
                    String email,
                    String studentNumber) {
@@ -26,9 +26,9 @@ public class Student extends BaseEntity {
         this.studentNumber = studentNumber;
     }
 
-    public void update(Student updatedStudent) {
-        this.name = updatedStudent.name;
-        this.surname = updatedStudent.surname;
-        this.email = updatedStudent.email;
+    public void update(Lecture updatedLecture) {
+        this.name = updatedLecture.name;
+        this.surname = updatedLecture.surname;
+        this.email = updatedLecture.email;
     }
 }

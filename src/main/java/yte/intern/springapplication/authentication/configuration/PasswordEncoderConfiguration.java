@@ -13,7 +13,5 @@ public class PasswordEncoderConfiguration {
 
         return new BCryptPasswordEncoder();
 
-        //return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-
     }
 }

@@ -9,9 +9,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import yte.intern.springapplication.authentication.controller.request.LoginRequest;
-import yte.intern.springapplication.authentication.user.entity.User;
 import yte.intern.springapplication.common.response.LoginMessageResponse;
-import yte.intern.springapplication.common.response.MessageResponse;
 import yte.intern.springapplication.common.response.ResponseType;
 
 @Service

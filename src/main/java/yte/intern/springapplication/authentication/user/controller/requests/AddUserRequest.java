@@ -3,7 +3,6 @@ package yte.intern.springapplication.authentication.user.controller.requests;
 import yte.intern.springapplication.authentication.entity.Authority;
 import yte.intern.springapplication.authentication.user.entity.Role;
 import yte.intern.springapplication.authentication.user.entity.User;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

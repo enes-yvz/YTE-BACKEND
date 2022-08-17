@@ -1,4 +1,4 @@
-package yte.intern.springapplication.authentication.user.entity;
+package yte.intern.springapplication.user.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

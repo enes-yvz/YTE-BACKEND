@@ -1,4 +1,4 @@
-package yte.intern.springapplication.authentication.user.service;
+package yte.intern.springapplication.user.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,12 +6,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import yte.intern.springapplication.authentication.entity.Authority;
-import yte.intern.springapplication.authentication.user.entity.Role;
-import yte.intern.springapplication.authentication.user.entity.User;
-import yte.intern.springapplication.authentication.user.repository.UserRepository;
+import yte.intern.springapplication.user.entity.Role;
+import yte.intern.springapplication.user.entity.User;
+import yte.intern.springapplication.user.repository.UserRepository;
 import yte.intern.springapplication.common.response.MessageResponse;
 import yte.intern.springapplication.common.response.ResponseType;
 import yte.intern.springapplication.common.response.UserMessageResponse;
+
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
             if (user == null) {
 
-                user = new User("X","XXXXXXXXXX","X","X","X",Role.STUDENT, List.of(new Authority("STUDENT")));
+                user = new User("X","XXXXXXXXXX","X","X","X", Role.STUDENT, List.of(new Authority("STUDENT")));
 
             }
 

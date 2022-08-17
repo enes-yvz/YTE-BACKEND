@@ -1,20 +1,16 @@
 package yte.intern.springapplication.authentication.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import yte.intern.springapplication.authentication.controller.request.LoginRequest;
 import yte.intern.springapplication.authentication.service.LoginService;
-import yte.intern.springapplication.authentication.user.entity.User;
-import yte.intern.springapplication.authentication.user.service.CustomUserDetailsService;
+import yte.intern.springapplication.user.entity.User;
+import yte.intern.springapplication.user.service.CustomUserDetailsService;
 import yte.intern.springapplication.common.response.LoginMessageResponse;
-import yte.intern.springapplication.common.response.MessageResponse;
 import yte.intern.springapplication.common.response.ResponseType;
 
 import javax.validation.Valid;

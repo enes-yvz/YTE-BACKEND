@@ -1,4 +1,4 @@
-package yte.intern.springapplication.authentication.user.controller.responses;
+package yte.intern.springapplication.user.controller.responses;
 
 
 import lombok.RequiredArgsConstructor;
@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import yte.intern.springapplication.authentication.user.controller.requests.AddUserRequest;
-import yte.intern.springapplication.authentication.user.service.CustomUserDetailsService;
+import yte.intern.springapplication.user.controller.requests.AddUserRequest;
+import yte.intern.springapplication.user.service.CustomUserDetailsService;
 import yte.intern.springapplication.common.response.MessageResponse;
 import yte.intern.springapplication.common.response.UserMessageResponse;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;

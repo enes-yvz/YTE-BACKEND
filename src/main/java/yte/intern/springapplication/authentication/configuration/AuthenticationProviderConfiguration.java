@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import yte.intern.springapplication.authentication.user.service.CustomUserDetailsService;
+import yte.intern.springapplication.user.service.CustomUserDetailsService;
 
 @Configuration
 public class AuthenticationProviderConfiguration {

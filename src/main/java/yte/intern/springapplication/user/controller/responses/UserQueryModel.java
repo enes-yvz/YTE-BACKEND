@@ -1,7 +1,7 @@
-package yte.intern.springapplication.authentication.user.controller.responses;
+package yte.intern.springapplication.user.controller.responses;
 
-import yte.intern.springapplication.authentication.user.entity.Role;
-import yte.intern.springapplication.authentication.user.entity.User;
+import yte.intern.springapplication.user.entity.Role;
+import yte.intern.springapplication.user.entity.User;
 
 public record UserQueryModel(
         Long id,

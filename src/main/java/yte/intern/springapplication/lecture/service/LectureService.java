@@ -6,7 +6,6 @@ import yte.intern.springapplication.common.response.MessageResponse;
 import yte.intern.springapplication.common.response.ResponseType;
 import yte.intern.springapplication.lecture.entity.Lecture;
 import yte.intern.springapplication.lecture.repository.LectureRepository;
-
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 

@@ -12,7 +12,6 @@ import yte.intern.springapplication.user.entity.User;
 import yte.intern.springapplication.user.service.CustomUserDetailsService;
 import yte.intern.springapplication.common.response.LoginMessageResponse;
 import yte.intern.springapplication.common.response.ResponseType;
-
 import javax.validation.Valid;
 
 @RestController

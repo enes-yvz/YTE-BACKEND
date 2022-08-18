@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/lecture")
 @RequiredArgsConstructor
 @Validated
 public class LectureController {

@@ -1,9 +1,12 @@
 package yte.intern.springapplication.lecture.service;
 
 import lombok.RequiredArgsConstructor;
+import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
 import yte.intern.springapplication.common.response.MessageResponse;
 import yte.intern.springapplication.common.response.ResponseType;
+import yte.intern.springapplication.lecture.controller.requests.AddLectureRequest;
+import yte.intern.springapplication.lecture.controller.requests.UpdateLectureRequest;
 import yte.intern.springapplication.lecture.entity.Lecture;
 import yte.intern.springapplication.lecture.repository.LectureRepository;
 import javax.persistence.EntityNotFoundException;
@@ -43,6 +46,21 @@ public class LectureService {
         lecture.update(updatedLecture);
 
         lectureRepository.save(lecture);
+
+        return new MessageResponse(ResponseType.SUCCESS, "Lecture has been updated successfully");
+    }
+
+    public MessageResponse updateAll(List<UpdateLectureRequest> updateLectureRequestList) {
+
+        for(UpdateLectureRequest updateLectureRequest:updateLectureRequestList) {
+
+            Lecture lecture = lectureRepository.findById(updateLectureRequest.getId())
+                    .orElseThrow(() -> new EntityNotFoundException("Lecture not found"));
+
+            lecture.update(updateLectureRequest.toDomainEntity());
+
+            lectureRepository.save(lecture);
+        }
 
         return new MessageResponse(ResponseType.SUCCESS, "Lecture has been updated successfully");
     }

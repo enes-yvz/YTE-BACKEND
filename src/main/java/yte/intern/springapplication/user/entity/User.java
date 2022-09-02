@@ -32,7 +32,6 @@ public class User extends BaseEntity implements UserDetails {
     )
     private List<Authority> authorities = new ArrayList<>();
 
-
     @Override
     public boolean isAccountNonExpired() {
         return true;

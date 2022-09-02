@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>yte.intern</groupId>
-	<artifactId>spring-application</artifactId>
+	<artifactId>springapplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-application</name>
+	<name>springapplication</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>18</java.version>
@@ -70,6 +70,10 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
         </dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+		</dependency>
 
     </dependencies>
 

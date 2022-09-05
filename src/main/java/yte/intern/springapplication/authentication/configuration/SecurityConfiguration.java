@@ -18,7 +18,7 @@ public class SecurityConfiguration {
         return httpSecurity.authorizeHttpRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/user").hasAuthority("ADMIN")
-                .antMatchers("/lecture").hasAuthority("ADMIN")
+                .antMatchers("/lecture").hasAnyAuthority("STUDENT","ASSISTANT","INSTRUCTOR","ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().disable()
